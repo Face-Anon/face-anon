@@ -1,0 +1,33 @@
+networks:
+  network:
+    driver: bridge
+
+services:
+  backend:
+    build:
+      context: ./backend
+    image: faceanon-backend:latest
+    environment:
+      - WEIGHTS_DIR=/weights
+    volumes:
+      - ./data/weights:/weights:ro
+    ports:
+      - "8000:8000"
+    networks:
+      - network
+
+  frontend:
+    build:
+      context: ./frontend
+    image: faceanon-frontend:latest
+    environment:
+      - BACKEND_URL=/api
+      - BACKEND_INTERNAL_URL=http://backend:8000
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    networks:
+      - network
+
+
