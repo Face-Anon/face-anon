@@ -1,0 +1,9 @@
+[submodule "backend"]
+	path = backend
+	url = git@github.com:Face-Anon/face-anon-backend.git
+[submodule "frontend"]
+	path = frontend
+	url = git@github.com:Face-Anon/face-anon-frontend.git
+[submodule "TFace"]
+	path = TFace
+	url = git@github.com:Face-Anon/TFace.git
