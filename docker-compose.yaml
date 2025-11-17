@@ -12,7 +12,7 @@ services:
     volumes:
       - ./data/weights:/weights:ro
     ports:
-      - "8000:8000"
+      - "9080:9080"
     networks:
       - network
 
@@ -22,7 +22,7 @@ services:
     image: faceanon-frontend:latest
     environment:
       - BACKEND_URL=/api
-      - BACKEND_INTERNAL_URL=http://backend:8000
+      - BACKEND_INTERNAL_URL=http://backend:9080
     ports:
       - "8080:80"
     depends_on:
